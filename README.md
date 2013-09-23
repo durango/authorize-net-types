@@ -1,4 +1,4 @@
-# Authorize.net Types
+# Authorize.net Types [![Dependency Status](https://david-dm.org/durango/authorize-net-types.png)](https://david-dm.org/durango/authorize-net-types)
 
 Authorize.net data types for Node.JS
 
