@@ -1,4 +1,6 @@
-# Authorize.net Types [![Dependency Status](https://david-dm.org/durango/authorize-net-types.png)](https://david-dm.org/durango/authorize-net-types)
+# Authorize.net Types
+
+[![Build Status](http://img.shields.io/travis/durango/authorize-net-types.svg)](https://travis-ci.org/durango/authorize-net-types) [![Dependency Status](https://david-dm.org/durango/authorize-net-types.svg?theme=shields.io)](https://david-dm.org/durango/authorize-net-types) [![devDependency Status](https://david-dm.org/durango/authorize-net-types/dev-status.svg?theme=shields.io)](https://david-dm.org/durango/authorize-net-types#info=devDependencies)
 
 Authorize.net data types for Node.JS
 

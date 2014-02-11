@@ -7,6 +7,9 @@
     "type": "git",
     "url": "https://github.com/durango/authorize-net-types"
   },
+  "scripts": {
+    "test": "make tests"
+  },
   "bugs": {
     "url": "https://github.com/durango/authorize-net-types/issues"
   },

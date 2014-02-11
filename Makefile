@@ -1,4 +1,4 @@
-test:
+tests:
 	@./node_modules/mocha/bin/mocha
 
-.PHONY test
+.PHONY: tests
