@@ -21,7 +21,7 @@
   "author": "Daniel Durante <me@danieldurante.com>",
   "license": "MIT",
   "devDependencies": {
-    "mocha": "~1.13.0",
-    "chai": "~1.8.0"
+    "mocha": "~1.17.1",
+    "chai": "~1.9.0"
   }
 }
