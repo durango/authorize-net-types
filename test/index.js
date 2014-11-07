@@ -7,16 +7,16 @@ describe('AuthorizationTypes', function() {
     it('should be able to create by calling new instances', function(done) {
       var Customer = new Types.Customer({
         merchantCustomerId: 123,
-        description: 'A customer with a lot of cash.',
+        description: 'A customer with a lot of cash & stuff.',
         email: 'completelyfake@dontemail.com',
         customerProfileId: 1234
       });
 
       expect(Customer).to.be.instanceOf(Types.Customer);
       expect(Customer.merchantCustomerId).to.equal(123);
-      expect(Customer.description).to.equal('A customer with a lot of cash.');
+      expect(Customer.description).to.equal('A customer with a lot of cash & stuff.');
       expect(Customer.customerProfileId).to.equal(1234);
-      expect(Customer.toXml()).to.equal('<profile><merchantCustomerId>123</merchantCustomerId><description>A customer with a lot of cash.</description><email>completelyfake@dontemail.com</email></profile>');
+      expect(Customer.toXml()).to.equal('<profile><merchantCustomerId>123</merchantCustomerId><description>A customer with a lot of cash &amp; stuff.</description><email>completelyfake@dontemail.com</email></profile>');
 
       // Let's create a paymentProfile
       var paymentProfiles = new Types.PaymentProfiles({
@@ -75,7 +75,7 @@ describe('AuthorizationTypes', function() {
       expect(Customer.paymentProfiles.bin[0].payment.bin[0].creditCard.cardCode).to.equal(123);
       expect(Customer.paymentProfiles.bin[0].payment.bin[0].creditCard.expirationDate).to.equal('10-12');
 
-      expect(Customer.toXml()).to.equal('<profile><merchantCustomerId>123</merchantCustomerId><description>A customer with a lot of cash.</description><email>completelyfake@dontemail.com</email><paymentProfiles><customerType>individual</customerType><customerPaymentProfileId>12345</customerPaymentProfileId><billTo><firstName>Bob</firstName><lastName>Smith</lastName><address>123 Sesame St</address><city>Johnesville</city><state>FL</state><zip>123</zip><country>US</country><phoneNumber>555-123-1234</phoneNumber><faxNumber>555-123-1235</faxNumber></billTo><payment><creditCard><cardNumber>41111111111111111</cardNumber><expirationDate>10-12</expirationDate><cardCode>123</cardCode></creditCard></payment></paymentProfiles></profile>');
+      expect(Customer.toXml()).to.equal('<profile><merchantCustomerId>123</merchantCustomerId><description>A customer with a lot of cash &amp; stuff.</description><email>completelyfake@dontemail.com</email><paymentProfiles><customerType>individual</customerType><customerPaymentProfileId>12345</customerPaymentProfileId><billTo><firstName>Bob</firstName><lastName>Smith</lastName><address>123 Sesame St</address><city>Johnesville</city><state>FL</state><zip>123</zip><country>US</country><phoneNumber>555-123-1234</phoneNumber><faxNumber>555-123-1235</faxNumber></billTo><payment><creditCard><cardNumber>41111111111111111</cardNumber><expirationDate>10-12</expirationDate><cardCode>123</cardCode></creditCard></payment></paymentProfiles></profile>');
 
       done();
     });
