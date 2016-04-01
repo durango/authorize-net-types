@@ -1114,4 +1114,45 @@ describe('AuthorizationTypes', function() {
       done();
     });
   });
+
+  describe('HostedProfileSettings', function() {
+    it('should be able to create by calling new instances', function(done) {
+      var hostedProfileSettings = [
+        {settingName: 'Setting 1', settingValue: 'Value 1'},
+        {settingName: 'Setting 2', settingValue: 'Value 2'}
+      ];
+
+      var HostedProfileSettings = new Types.HostedProfileSettings(hostedProfileSettings);
+
+      expect(HostedProfileSettings).to.be.instanceof(Types.HostedProfileSettings);
+      expect(HostedProfileSettings).to.have.length(2);
+      expect(HostedProfileSettings.bin).to.be.instanceof(Array);
+      expect(HostedProfileSettings.bin[0]).to.deep.equal(hostedProfileSettings[0]);
+      expect(HostedProfileSettings.bin[1]).to.deep.equal(hostedProfileSettings[1]);
+
+      expect(HostedProfileSettings.toXml()).to.equal('<hostedProfileSettings><setting><settingName>Setting 1</settingName><settingValue>Value 1</settingValue></setting><setting><settingName>Setting 2</settingName><settingValue>Value 2</settingValue></setting></hostedProfileSettings>');
+      done();
+    });
+  });
+
+
+  describe('HostedProfilePage', function() {
+    it('should be able to create by calling new instances', function(done) {
+      var hostedProfileSettings = [
+        {settingName: 'Setting 1', settingValue: 'Value 1'},
+        {settingName: 'Setting 2', settingValue: 'Value 2'}
+      ];
+
+      var HostedProfilePage = new Types.HostedProfilePage({
+        customerProfileId: 1234,
+        hostedProfileSettings: new Types.HostedProfileSettings(hostedProfileSettings)
+      });
+
+      expect(HostedProfilePage).to.be.instanceof(Types.HostedProfilePage);
+      expect(HostedProfilePage.customerProfileId).to.equal(1234);
+      expect(HostedProfilePage.toXml()).to.equal('<customerProfileId>1234</customerProfileId><hostedProfileSettings><setting><settingName>Setting 1</settingName><settingValue>Value 1</settingValue></setting><setting><settingName>Setting 2</settingName><settingValue>Value 2</settingValue></setting></hostedProfileSettings>');
+
+      done();
+    });
+  });
 });
