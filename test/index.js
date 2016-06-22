@@ -16,6 +16,8 @@ describe('AuthorizationTypes', function() {
       expect(Customer.merchantCustomerId).to.equal(123);
       expect(Customer.description).to.equal('A customer with a lot of cash & stuff.');
       expect(Customer.customerProfileId).to.equal(1234);
+      expect(Customer.shipToList).to.not.exist;
+      expect(Customer.paymentProfiles).to.not.exist;
       expect(Customer.toXml()).to.equal('<profile><merchantCustomerId>123</merchantCustomerId><description>A customer with a lot of cash &amp; stuff.</description><email>completelyfake@dontemail.com</email></profile>');
 
       // Let's create a paymentProfile
